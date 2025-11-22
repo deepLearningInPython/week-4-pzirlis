@@ -97,7 +97,8 @@ def tokenize(string: str) -> list:
 # -----------------------------------------------
 def token_counts(string: str, k: int = 1) -> dict:
     tokens = string.lower().split()
-    counts = {token: tokens.count(token) for token in tokens if tokens.count(token) > k}
+    unique = set(tokens)
+    counts = {token: tokens.count(token) for token in unique if tokens.count(token) > k}
     return counts
 
 
