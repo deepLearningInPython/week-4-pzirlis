@@ -50,7 +50,6 @@ def tokenize(string: str):
     string = string.lower()  # lowercase
     tokens = "".join([ch for ch in string if ch not in punct]) # remove punctuation
     tokens = tokens.split()  # split tokens
-    tokens.sort() # sort in alphabetical order
     return tokens
 # -----------------------------------------------
 
@@ -165,12 +164,16 @@ assert all(id_to_token[token_to_id[key]]==key for key in token_to_id) and all(to
 # Your code here:
 # -----------------------------------------------
 def make_vocabulary_map(documents: list) -> tuple:
-    uniques = list(dict.fromkeys(documents))
+    all_tokens = []
+    for doc in documents:
+        all_tokens.extend(tokenize(doc))
 
-    token2int = {token: uniques.index(token) for token in uniques}
-    int2token = {uniques.index(token): token for token in uniques}
+    uniques = sorted(set(all_tokens))
 
-    return token2int, int2token # Your code
+    token2int = {token: idx for idx, token in enumerate(uniques)}
+    int2token = {idx: token for idx, token in enumerate(uniques)}
+
+    return token2int, int2token
 
 # Test
 t2i, i2t = make_vocabulary_map([text])
@@ -190,7 +193,14 @@ all(i2t[t2i[tok]] == tok for tok in t2i) # should be True
 # -----------------------------------------------
 def tokenize_and_encode(documents: list) -> list:
     # Hint: use your make_vocabulary_map and tokenize function
-    pass # Your code
+    token_to_id, id_to_token = make_vocabulary_map(documents)
+    encoded = []
+
+    for doc in documents:
+        tokens = tokenize(doc)
+        encoded.append([token_to_id[token] for token in tokens])
+
+    return encoded, token_to_id, id_to_token
 
 # Test:
 enc, t2i, i2t = tokenize_and_encode([text, 'What a luck we had today!'])
@@ -221,6 +231,8 @@ sigmoid = _ # Your code
 # Test:
 np.all(sigmoid(np.log([1, 1/3, 1/7])) == np.array([1/2, 1/4, 1/8]))
 # -----------------------------------------------
+
+
 
 
 ################  O P T I O N A L  ##############
