@@ -48,13 +48,6 @@ punct = ['!', '.', ',', '?', ':', ';']
 
 def tokenize(string: str) -> list:
     string = string.lower()
-    for p in punct:
-        string = string.replace(p, '')
-    return string.split()
-
-# With list comprehension
-def tokeniz(string: str) -> list:
-    string = string.lower()
     tokens = "".join([ch for ch in string if ch not in punct])
     return tokens.split().sort()
 # -----------------------------------------------
