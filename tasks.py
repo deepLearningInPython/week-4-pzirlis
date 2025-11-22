@@ -29,7 +29,7 @@ import numpy as np
 text = "The quick brown fox jumps over the lazy dog!"
 
 # Write a list comprehension to tokenize the text and remove punctuation
-tokens = _ # Your code here
+tokens = [tok for tok in text.replace("!","").split()]
 
 # Expected output: ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
 print(tokens)
@@ -44,10 +44,19 @@ print(tokens)
 
 # Your code here:
 # -----------------------------------------------
+punct = ['!', '.', ',', '?', ':', ';']
+
 def tokenize(string: str) -> list:
-    pass # Your code
+    string = string.lower()
+    for p in punct:
+        string = string.replace(p, '')
+    return string.split()
 
-
+# With list comprehension
+def tokeniz(string: str) -> list:
+    string = string.lower()
+    tokens = "".join([ch for ch in string if ch not in punct])
+    return tokens.split().sort()
 # -----------------------------------------------
 
 
