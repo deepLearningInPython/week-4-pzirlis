@@ -95,11 +95,11 @@ def tokenize(string: str) -> list:
 
 # Your code here:
 # -----------------------------------------------
-def token_counts(string: str, k: int = 0):
+def token_counts(string: str, k: int = 1):
     string = string.lower()  # lowercase
     tokens = "".join([ch for ch in string if ch not in punct]) # remove punctuation
     tokens = tokens.split()  # split tokens
-    return {tok: tokens.count(tok) for tok in set(tokens) if tokens.count(tok) > k}
+    return {tok: tokens.count(tok) for tok in set(tokens) if tokens.count(tok) >= k}
 
 
 # test:
