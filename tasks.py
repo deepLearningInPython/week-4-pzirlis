@@ -46,10 +46,12 @@ print(tokens)
 # -----------------------------------------------
 punct = ['!', '.', ',', '?', ':', ';']
 
-def tokenize(string: str) -> list:
-    string = string.lower()
-    tokens = "".join([ch for ch in string if ch not in punct])
-    return tokens.split().sort()
+def tokenize(string: str):
+    string = string.lower()  # lowercase
+    tokens = "".join([ch for ch in string if ch not in punct]) # remove punctuation
+    tokens = tokens.split()  # split tokens
+    tokens.sort() # sort in alphabetical order
+    return tokens
 # -----------------------------------------------
 
 
@@ -76,7 +78,7 @@ def tokenize(string: str) -> list:
 
 # Your code here:
 # -----------------------------------------------
-word_frequencies = _ # Your code here
+word_frequencies = {token: tokens.count(token) for token in tokens}
 
 # Expected output example: {'the': 2, 'quick': 1, ...}
 print(word_frequencies)
