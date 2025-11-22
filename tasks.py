@@ -26,13 +26,13 @@ import numpy as np
 
 # Your code here:
 # -----------------------------------------------
-text = "The quick brown fox jumps over the lazy dog!"
+#text = "The quick brown fox jumps over the lazy dog!"
 
 # Write a list comprehension to tokenize the text and remove punctuation
-tokens = [tok for tok in text.replace("!","").split()]
+#tokens = [tok for tok in text.replace("!","").split()]
 
 # Expected output: ['The', 'quick', 'brown', 'fox', 'jumps', 'over', 'the', 'lazy', 'dog']
-print(tokens)
+#print(tokens)
 # -----------------------------------------------
 
 
@@ -44,7 +44,7 @@ print(tokens)
 
 # Your code here:
 # -----------------------------------------------
-punct = ['!', '.', ',', '?', ':', ';']
+#punct = ['!', '.', ',', '?', ':', ';']
 
 def tokenize(string: str):
     string = string.lower()  # lowercase
@@ -77,15 +77,15 @@ def tokenize(string: str):
 
 # Your code here:
 # -----------------------------------------------
-word_frequencies = {token: tokens.count(token) for token in tokens}
+#word_frequencies = {token: tokens.count(token) for token in tokens}
 
 # Expected output example: {'the': 2, 'quick': 1, ...}
-print(word_frequencies)
+#print(word_frequencies)
 
 # Modify the comprehension to include only words that appear more than once.
-word_frequencies_2 = {token: tokens.count(token) for token in tokens if tokens.count(token) > 1}
+#word_frequencies_2 = {token: tokens.count(token) for token in tokens if tokens.count(token) > 1}
 
-print(word_frequencies_2)
+#print(word_frequencies_2)
 # -----------------------------------------------
 
 
