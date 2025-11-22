@@ -84,6 +84,9 @@ word_frequencies = {token: tokens.count(token) for token in tokens}
 print(word_frequencies)
 
 # Modify the comprehension to include only words that appear more than once.
+word_frequencies_2 = {token: tokens.count(token) for token in tokens if tokens.count(token) > 1}
+
+print(word_frequencies_2)
 # -----------------------------------------------
 
 
@@ -94,7 +97,10 @@ print(word_frequencies)
 # Your code here:
 # -----------------------------------------------
 def token_counts(string: str, k: int = 1) -> dict:
-    pass # Your code
+    tokens = string.lower().split()
+    counts = {token: tokens.count(token) for token in tokens if tokens.count(token) > k}
+    return counts
+
 
 # test:
 text_hist = {'the': 2, 'quick': 1, 'brown': 1, 'fox': 1, 'jumps': 1, 'over': 1, 'lazy': 1, 'dog': 1}
