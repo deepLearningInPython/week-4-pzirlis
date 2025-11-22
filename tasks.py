@@ -44,9 +44,9 @@ import numpy as np
 
 # Your code here:
 # -----------------------------------------------
-#punct = ['!', '.', ',', '?', ':', ';']
+punct = ['!', '.', ',', '?', ':', ';']
 
-def tokenize(string: str):
+def tokenize(string: str) -> list:
     string = string.lower()  # lowercase
     tokens = "".join([ch for ch in string if ch not in punct]) # remove punctuation
     tokens = tokens.split()  # split tokens
