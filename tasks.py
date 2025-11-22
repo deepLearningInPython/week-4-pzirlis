@@ -26,7 +26,7 @@ import numpy as np
 
 # Your code here:
 # -----------------------------------------------
-#text = "The quick brown fox jumps over the lazy dog!"
+text = "The quick brown fox jumps over the lazy dog!"
 
 # Write a list comprehension to tokenize the text and remove punctuation
 #tokens = [tok for tok in text.replace("!","").split()]
@@ -95,11 +95,9 @@ def tokenize(string: str) -> list:
 
 # Your code here:
 # -----------------------------------------------
-def token_counts(string: str, k: int = 1) -> dict:
+def token_counts(string: str, k: int = 1):
     tokens = string.lower().split()
-    unique = set(tokens)
-    counts = {token: tokens.count(token) for token in unique if tokens.count(token) > k}
-    return counts
+    return {tok: tokens.count(tok) for tok in set(tokens) if tokens.count(tok) > k}
 
 
 # test:
