@@ -131,7 +131,8 @@ all(text_hist[key] == value for key, value in token_counts(text).items())
 
 # Your code here:
 # -----------------------------------------------
-token_to_id = _ # Your code here
+uniques = list(dict.fromkeys(tokens))
+token_to_id = {token: uniques.index(token) for token in uniques}
 
 # Expected output: {'dog': 0, 'quick': 1, 'fox': 2, 'the': 3, 'over': 4, 'lazy': 5, 'brown': 6, 'jumps': 7}
 print(token_to_id)
@@ -143,7 +144,7 @@ print(token_to_id)
 #
 # Your code here:
 # -----------------------------------------------
-id_to_token = _ # Your code here
+id_to_token = {uniques.index(token): token for token in uniques}
 
 # tests: 
 # test 1
